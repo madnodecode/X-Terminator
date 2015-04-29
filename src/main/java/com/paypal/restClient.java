@@ -33,7 +33,7 @@ public class restClient {
 			try {
 		 
 				Client client = Client.create();
-				bugClient = client.resource("http://qualinfralvs42.qa.paypal.com/rest/metricsserv/openBugs?leaderHierarchy=/jbarrese/agoldber/bilscott/aruan/acontractor/nmallya");
+				bugClient = client.resource("http://qualinfralvs42.qa.paypal.com/rest/metricsserv/openBugs?leaderHierarchy=/dschulman/wready/agoldber/cchikkareddy/nmallya");
 				ClientResponse resp = bugClient.accept("application/json").get(ClientResponse.class);
 				
 				if (resp.getStatus() != 200) {
@@ -66,13 +66,13 @@ public class restClient {
 	 public static void emailSetup(BugFeed bug){
 		 
 		 	final String username = "mthyagarajan@paypal.com";
-			final String password = "Madpayp100";
+			final String password = "Madpayp102";
 		 
 		 	Properties props = new Properties();
 			props.put("mail.smtp.auth", "true");
-			props.put("mail.smtp.starttls.enable", "true");
+			props.put("mail.smtp.starttls.enable", "false");
 			props.put("mail.smtp.host", "atom.corp.ebay.com");
-		 
+			
 		    Session session = Session.getInstance(props,
 				  new javax.mail.Authenticator() {
 					protected PasswordAuthentication getPasswordAuthentication() {
