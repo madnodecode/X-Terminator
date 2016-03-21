@@ -1,4 +1,5 @@
 BugReminder
 ===========
 
-X-Terminator tool
+X-Terminator - a tool to send periodic email alerts on open bugs to bug owners.
+
