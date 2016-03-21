@@ -33,7 +33,8 @@ public class restClient {
 			try {
 		 
 				Client client = Client.create();
-				bugClient = client.resource("http://qualinfralvs42.qa.paypal.com/rest/metricsserv/openBugs?leaderHierarchy=/dschulman/wready/agoldber/cchikkareddy/nmallya");
+				//input the rest resource end point URL
+				bugClient = client.resource("");
 				ClientResponse resp = bugClient.accept("application/json").get(ClientResponse.class);
 				
 				if (resp.getStatus() != 200) {
@@ -65,8 +66,9 @@ public class restClient {
 	 
 	 public static void emailSetup(BugFeed bug){
 		 
-		 	final String username = "mthyagarajan@paypal.com";
-			final String password = "Madpayp102";
+		 	//initialize username password
+		 	final String username = "";
+			final String password = "";
 		 
 		 	Properties props = new Properties();
 			props.put("mail.smtp.auth", "true");
@@ -81,12 +83,15 @@ public class restClient {
 					}
 				  });
 		 try {
-			    String jiraBugUrl = "https://jira.paypal.com/jira/browse/"+bug.getBugId();
+			 	//pass jira url
+			    String jiraBugUrl = ""+bug.getBugId();
 				Message message = new MimeMessage(session);
-				message.setFrom(new InternetAddress("mthyagarajan@paypal.com"));
+				//sender email id
+				message.setFrom(new InternetAddress(""));
 				message.setRecipients(Message.RecipientType.TO,
-						InternetAddress.parse(""+bug.getDeveloperemail()+","+bug.getVerifierEmail())); 
-				message.setRecipients(Message.RecipientType.CC,InternetAddress.parse("nmallya@ebay.com"));
+						InternetAddress.parse(""+bug.getDeveloperemail()+","+bug.getVerifierEmail()));
+				//pass CC Recipients
+				message.setRecipients(Message.RecipientType.CC,InternetAddress.parse(""));
 				message.setSubject("Open Bug: "+jiraBugUrl);
 				message.setText("Dear "+ bug.getDeveloperemail()+
 						",\n\n"+"You have a bug pending, please act on it."+"\n\n\n"
